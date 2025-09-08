@@ -127,9 +127,21 @@ const Home = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <Animated.View style={[styles.header, { opacity: fadeAnim }]}>
-          <Text style={styles.headerTitle}>⌘</Text>
+          <View style={styles.titleContainer}>
+            <View style={styles.logoContainer}>
+              <View style={styles.xIcon}>
+                <Text style={styles.xIconText}>✕</Text>
+              </View>
+              <View style={styles.titleTextContainer}>
+                <Text style={styles.brandName}>XRPL</Text>
+                <View style={styles.brandSeparator} />
+                <Text style={styles.brandSuffix}>W</Text>
+              </View>
+            </View>
+            <View style={styles.glowEffect} />
+          </View>
           <Text style={styles.headerSubtitle}>
-            Find out how much XRP is in that wallet and see recent transactions.
+            Explore XRP wallets • Track balances • View transactions
           </Text>
           
           {/* XRP Price Display */}
@@ -290,22 +302,92 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     alignItems: 'center',
   },
-  headerTitle: {
-    fontSize: 32,
-    fontWeight: '800',
+  titleContainer: {
+    position: 'relative',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  logoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    zIndex: 2,
+  },
+  xIcon: {
+    width: 44,
+    height: 44,
+    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 16,
+    borderWidth: 2,
+    borderColor: '#3b82f6',
+    shadowColor: '#3b82f6',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 12,
+  },
+  xIconText: {
+    fontSize: 20,
+    fontWeight: '900',
+    color: '#3b82f6',
+    textShadowColor: '#3b82f6',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
+  },
+  titleTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  brandName: {
+    fontSize: 38,
+    fontWeight: '900',
     color: '#ffffff',
-    textAlign: 'center',
-    marginBottom: 8,
-    letterSpacing: -0.5,
+    letterSpacing: -1.2,
+    textShadowColor: 'rgba(255, 255, 255, 0.3)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
+  },
+  brandSeparator: {
+    width: 3,
+    height: 28,
+    backgroundColor: '#10b981',
+    marginHorizontal: 8,
+    borderRadius: 2,
+    shadowColor: '#10b981',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 8,
+  },
+  brandSuffix: {
+    fontSize: 38,
+    fontWeight: '900',
+    color: '#10b981',
+    letterSpacing: -1.2,
+    textShadowColor: '#10b981',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 12,
+  },
+  glowEffect: {
+    position: 'absolute',
+    top: -10,
+    left: -20,
+    right: -20,
+    bottom: -10,
+    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+    borderRadius: 20,
+    zIndex: 1,
   },
   headerSubtitle: {
     fontSize: 15,
-    color: '#6b7280',
+    color: '#9ca3af',
     textAlign: 'center',
     marginBottom: 28,
     lineHeight: 22,
-    fontWeight: '500',
-    letterSpacing: 0.2,
+    fontWeight: '600',
+    letterSpacing: 0.5,
   },
   priceCard: {
     backgroundColor: '#1a1b23',
