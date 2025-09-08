@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "xrpwallet",
     "name": "xrpappfront",
     "slug": "xrpappfront",
     "version": "1.0.0",
@@ -24,6 +25,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
